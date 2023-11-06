@@ -8,3 +8,4 @@ export { PageNotFound } from './PageNotFound';
 export { Contact } from './Contact';
 export { About } from './About';
 export { Login } from './Login';
+export { ProductList } from '../pages/ProductList';

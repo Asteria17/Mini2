@@ -1,29 +1,30 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { Card, ProductList } from '../components';
-import { Search } from '../pages/Search';
+import { Link, NavLink } from 'react-router-dom';
+import { Card } from '../components';
+import { Search, ProductList } from '../pages';
 
 export const NavBar = ({ products }) => {
   const [data, setData] = useState([]);
-  const [filter, setFilter] = useState(data);
+  const [filter, setFilter, show] = useState(data);
   const [id, title, category, price] = data;
   useEffect(() => {
-    getCategorized();
+    getBrand();
   }, []);
-
-  const getCategorized = async () => {
-    const response = await fetch('https://fakestoreapi.com/products');
+  const getBrand = async () => {
+    const response = await fetch(
+      'http://makeup-api.herokuapp.com/api/v1/products.json?brand=nyx'
+    );
     setData(await response.json());
     setFilter(data);
-    console.log(data);
   };
 
+  
+
   const filterProducts = (category) => {
-    const updatedItems = data.filter((item) => item.category === category);
+    const updatedItems = data.filter((item) => item.product_type === category);
     console.log(updatedItems);
     setFilter(updatedItems);
   };
-
   return (
     <main className=" text-center ">
       <Search />
@@ -33,43 +34,63 @@ export const NavBar = ({ products }) => {
       <div className="inline-flex rounded-md shadow-sm">
         <Link
           onClick={() => setFilter(data)}
-          aria-current="page"
-          className="px-4 py-2 text-sm font-medium text-blue-700 bg-white border border-gray-200 rounded-l-lg hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white"
+          className="relative inline-flex items-center w-full px-4 py-2 text-sm font-bold border-b border-gray-200 rounded-t-lg hover:bg-gray-200 hover:text-sky-500 focus:text-sky-500 border-gray-600 hover:bg-gray-600 hover:text-white focus:ring-gray-500 focus:text-blue-900 active:bg-gray-600 "
+          end
         >
-          All Products
+          All NYX Products
         </Link>
         <Link
-          onClick={() => filterProducts('electronics')}
-          href="#"
-          className="px-4 py-2 text-sm font-medium text-gray-900 bg-white border-t border-b border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white"
+          onClick={() => filterProducts('lipstick')}
+          className="relative inline-flex items-center w-full px-4 py-2 text-sm font-bold border-b border-gray-200 rounded-t-lg hover:bg-gray-200 hover:text-sky-500 focus:text-sky-500 border-gray-600 hover:bg-gray-600 hover:text-white focus:ring-gray-500 focus:text-blue-900 active:bg-gray-600 "
         >
-          Electronic Items
+          Lipstick
         </Link>
         <Link
-          onClick={() => filterProducts('jewelery')}
-          href="#"
-          className="px-4 py-2 text-sm font-medium text-gray-900 bg-white border-t border-b border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white"
+          onClick={() => filterProducts('lip_liner')}
+          className="relative inline-flex items-center w-full px-4 py-2 text-sm font-bold border-b border-gray-200 rounded-t-lg hover:bg-gray-200 hover:text-sky-500 focus:text-sky-500 border-gray-600 hover:bg-gray-600 hover:text-white focus:ring-gray-500 focus:text-blue-900 active:bg-gray-600 "
         >
-          Jewelry Items
+          Lip Liner
         </Link>
         <Link
-          onClick={() => filterProducts("women's clothing")}
-          href="#"
-          className="px-4 py-2 text-sm font-medium text-gray-900 bg-white border-t border-b border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white"
+          onClick={() => filterProducts('mascara')}
+          className="relative inline-flex items-center w-full px-4 py-2 text-sm font-bold border-b border-gray-200 rounded-t-lg hover:bg-gray-200 hover:text-sky-500 focus:text-sky-500 border-gray-600 hover:bg-gray-600 hover:text-white focus:ring-gray-500 focus:text-blue-900 active:bg-gray-600 "
         >
-          Women's Clothing
+          Mascara
         </Link>
         <Link
-          onClick={() => filterProducts("men's clothing")}
-          href="#"
-          className="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-r-md hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white"
+          onClick={() => filterProducts('eyeshadow')}
+          className="relative inline-flex items-center w-full px-4 py-2 text-sm font-bold border-b border-gray-200 rounded-t-lg hover:bg-gray-200 hover:text-sky-500 focus:text-sky-500 border-gray-600 hover:bg-gray-600 hover:text-white focus:ring-gray-500 focus:text-blue-900 active:bg-gray-600 "
         >
-          Men's Clothing
+          Eye Shadow
+        </Link>
+        <Link
+          onClick={() => filterProducts('eyeliner')}
+          className="relative inline-flex items-center w-full px-4 py-2 text-sm font-bold border-b border-gray-200 rounded-t-lg hover:bg-gray-200 hover:text-sky-500 focus:text-sky-500 border-gray-600 hover:bg-gray-600 hover:text-white focus:ring-gray-500 focus:text-blue-900 active:bg-gray-600 "
+        >
+          Eye Liner
+        </Link>
+        <Link
+          onClick={() => filterProducts('bronzer')}
+          className="relative inline-flex items-center w-full px-4 py-2 text-sm font-bold border-b border-gray-200 rounded-t-lg hover:bg-gray-200 hover:text-sky-500 focus:text-sky-500 border-gray-600 hover:bg-gray-600 hover:text-white focus:ring-gray-500 focus:text-blue-900 active:bg-gray-600 "
+        >
+          Bronzer
+        </Link>
+        <Link
+          onClick={() => filterProducts('blush')}
+          className="relative inline-flex items-center w-full px-4 py-2 text-sm font-bold border-b border-gray-200 rounded-t-lg hover:bg-gray-200 hover:text-sky-500 focus:text-sky-500 border-gray-600 hover:bg-gray-600 hover:text-white focus:ring-gray-500 focus:text-blue-900 active:bg-gray-600 "
+        >
+          Blush On
+        </Link>
+        <Link
+          onClick={() => filterProducts('foundation')}
+          className="relative inline-flex items-center w-full px-4 py-2 text-sm font-bold border-b border-gray-200 rounded-t-lg hover:bg-gray-200 hover:text-sky-500 focus:text-sky-500 border-gray-600 hover:bg-gray-600 hover:text-white focus:ring-gray-500 focus:text-blue-900 active:bg-gray-600 "
+        >
+          Foundation{' '}
         </Link>
       </div>
 
       <section className="container flex flex-wrap max-w-7x1 mx-auto py-7 items-center rounded-lg">
-        <div className="flex flex-wrap inline-grid grid-cols-4 gap-4">
+        <div className="flex flex-wrap inline-grid grid-cols-4 gap-4 pointer-events-auto	">
           {filter.map((product) => (
             <Card
               key={product.id}

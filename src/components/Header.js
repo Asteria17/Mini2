@@ -21,6 +21,12 @@ export const Header = () => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+  const handleBackdropClick = (e) => {
+    if (e.target === e.currentTarget) {
+      closeModal();
+    }
+  };
+
 
   return (
     <header className="mb-4">
@@ -100,7 +106,7 @@ export const Header = () => {
               alt="Shopaholic-U Cart"
             />
           </div>
-      {/* <div className='container mx-auto w-1/2 '>
+          {/* <div className='container mx-auto w-1/2 '>
       <Search />
       </div>    */}
         </div>
@@ -108,45 +114,50 @@ export const Header = () => {
       <nav className="flex items-center bg-gray-50 dark:bg-gray-700">
         <div className="max-w-screen-xl px-4 py-3 mx-auto"></div>
       </nav>
-      {isModalOpen && (
-  <div
-    id="authentication-modal"
-    tabIndex="-1"
-    aria-hidden="true"
-    className="fixed top-0 left-0 right-0 bottom-0 flex items-center justify-center bg-gray-900 bg-opacity-50"
-  >
-    <div className="relative max-w-md w-full">
-      {/* Modal content */}
-      <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
-        <button
-          onClick={closeModal}
-          type="button"
-          className="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-blue-950  dark:hover:text-white"
-        >
-          <svg
-            className="w-3 h-3"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 14 14"
-          >
-            <path
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
-            ></path>
-          </svg>
-          <span className="sr-only">Close modal</span>
-        </button>
-        <div className="px-6 py-6 lg:px-8">
-          <h3 className="mb-4 text-2xl font-bold text-pink-900 dark:text-gray-100">
-            Sign in to our platform
-          </h3>
-          <form class="space-y-6" action="#">
+     {isModalOpen && (
+         <div
+         tabIndex="-1"
+         className="fixed top-0 left-0 right-0 bottom-0 flex items-center justify-center bg-gray-900 bg-opacity-50"
+         onClick={handleBackdropClick}
+       >
+         <div className="max-w-md w-full">
+            {/* Modal content */}
+            <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
+              <button
+                onClick={closeModal}
+                type="button"
+                className="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-blue-950  dark:hover:text-white"
+              >
+                <svg
+                  className="w-3 h-3"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 14 14"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                  ></path>
+                </svg>
+                <span className="sr-only">Close modal</span>
+              </button>
+              <div className="px-6 py-6 lg:px-8">
+                <h3 className="mb-4 text-2xl font-bold text-pink-900 dark:text-gray-100">
+                  Sign in to our platform
+                </h3>
+                <form
+                  class="space-y-6"
+                  action="#"
+                >
                   <div>
-                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-pink-300">
+                    <label
+                      for="email"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-pink-300"
+                    >
                       Your email
                     </label>
                     <input
@@ -159,7 +170,10 @@ export const Header = () => {
                     />
                   </div>
                   <div>
-                    <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-pink-300">
+                    <label
+                      for="password"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-pink-300"
+                    >
                       Your password
                     </label>
                     <input
@@ -182,11 +196,17 @@ export const Header = () => {
                           required
                         />
                       </div>
-                      <label for="remember" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                      <label
+                        for="remember"
+                        class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                      >
                         Remember me
                       </label>
                     </div>
-                    <a href="#" class="text-sm text-blue-700 hover:underline dark:text-blue-500">
+                    <a
+                      href="#"
+                      class="text-sm text-blue-700 hover:underline dark:text-blue-500"
+                    >
                       Lost Password?
                     </a>
                   </div>
@@ -198,17 +218,19 @@ export const Header = () => {
                   </button>
                   <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
                     Not registered?{' '}
-                    <a href="#" class="text-blue-700 hover:underline dark:text-blue-500">
+                    <a
+                      href="#"
+                      class="text-blue-700 hover:underline dark:text-blue-500"
+                    >
                       Create account
                     </a>
                   </div>
                 </form>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-)}
-
-       </header>
+      )}
+    </header>
   );
 };

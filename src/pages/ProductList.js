@@ -1,31 +1,32 @@
 import { useState, useEffect } from 'react';
-
-import { Card } from './Card';
+import { Link } from 'react-router-dom';
+import { Card } from '../components';
 
 export const ProductList = () => {
   const [data, setData] = useState([]);
   const [filter, setFilter] = useState(data);
 
   useEffect(() => {
-    getCategorized();
+    getBrand();
   }, []);
-
-  const getCategorized = async () => {
-    const response = await fetch('https://fakestoreapi.com/products');
+  const getBrand = async () => {
+    const response = await fetch(
+      'http://makeup-api.herokuapp.com/api/v1/products.json?brand=nyx'
+    );
     setData(await response.json());
     setFilter(data);
     console.log(data);
   };
 
-  const filterProducts = (category) => {
-    const updatedItems = data.filter((item) => item.category === category);
-    console.log(updatedItems);
+  const filterProducts = (products) => {
+    const updatedItems = data.filter((item) => item.product_type === products);
+
     setFilter(updatedItems);
   };
 
   return (
-    <div>
-      <section className="container flex flex-wrap max-w-7x1 mx-auto py-7 items-center rounded-lg">
+    <main className=" text-center ">
+      <section className="container flex flex-wrap max-w-7x1 mx-auto py-7 items-center rounded-lg text-center">
         <div className="flex flex-wrap inline-grid grid-cols-4 gap-4">
           {filter.map((product) => (
             <Card
@@ -35,6 +36,6 @@ export const ProductList = () => {
           ))}
         </div>
       </section>
-    </div>
+    </main>
   );
 };

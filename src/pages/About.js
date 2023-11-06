@@ -14,12 +14,7 @@ export const About = () => {
           <div className='grid grid-cols-2 gap-4'> 
              <img src={ImgAbout} alt="About Image" className='container border-double border-4 border-pink-700 rounded-full'/>
           <p className=" text-black-700 text-lg leading-7 inline-block align-middle ">
-            Shopaholic-U is your ultimate destination for a wide array of
-            high-quality products. Founded by the dedicated team of Shirley
-            Calaunan Macaraeg-Estronilo and Mark Lorenze Borleo, we bring you a meticulously curated
-            collection of items, including the latest trends in men's and
-            women's clothing, exquisite jewelry, cutting-edge electronics, high quality makeups and
-            so much more.</p>
+          "Shopaholic-U is your ultimate destination for a wide array of high-quality beauty and makeup products. Founded by the dedicated team of Shirley Calaunan Macaraeg-Estronilo and Mark Lorenze Borleo, we bring you a meticulously curated collection of items, including the latest trends in men's and women's clothing, exquisite jewelry, cutting-edge electronics, and so much more. Explore our extensive range of beauty and makeup products to enhance your natural beauty and elevate your style.</p>
           </div>
           <div className=" grid grid-cols-2 gap-4">
           <p className="text-black-700 mt-6 text-lg leading-7">

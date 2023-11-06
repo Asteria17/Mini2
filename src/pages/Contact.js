@@ -10,7 +10,7 @@ export const Contact = () => {
   return (
     <main>
       <div className="container mx-auto mt-5 p-6 w-1/2 ">
-        <div className="con bg-gray-300 rounded-lg p-8 shadow-md">
+        <div className="con bg-pink-200 rounded-lg p-8 shadow-md">
           <h1 className="text-3xl font-bold mb-4 text-primary mt-5">
             Contact Shopaholic-U
           </h1>
