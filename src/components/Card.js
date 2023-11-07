@@ -46,6 +46,9 @@ export const Card = ({ data }) => {
         <div className="px-5 pb-5">
           <Link onClick={openModal}>
             <h5 className="text-xl font-semibold tracking-tight text-gray-900 text-black">
+              {category}
+            </h5>
+            <h5 className="text-xl font-semibold tracking-tight text-gray-900 text-black">
               {name}
             </h5>
           </Link>

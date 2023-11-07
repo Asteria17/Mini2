@@ -54,13 +54,12 @@ export const Home = () => {
         <div className=" container bg-gray-200 pt-5 ">
           <Search />
           <h1 className="text-center text-3xl font-bold">BEST SELLERS</h1>
-          <p className="text-center hover:text-white">
-            <a
-              href="/products"
-              onClick={handleLinkClick}
+          <p className="text-blue-950 text-center hover:text-pink-300  text-3xl font-bold mt-4 ">
+            <Link to={`/products`}
+              className='border border-blue-950 rounded-lg bg-gray-400'
             >
-              Shop Now
-            </a>
+            Shop Now!
+            </Link>
           </p>
           <section className="container flex flex-wrap max-w-7x1 mx-auto py-7 items-center rounded-lg text-center">
             <div className="flex flex-wrap p-4 inline-grid grid-cols-4 gap-x-1 gap-y-4">

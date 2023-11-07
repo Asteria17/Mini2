@@ -111,7 +111,7 @@ export const Header = () => {
       </div>    */}
         </div>
       </nav>
-      <nav className="flex items-center bg-gray-50 dark:bg-gray-700">
+      <nav className="flex items-center bg-gray-50 dark:bg-gray-700 mdoal">
         <div className="max-w-screen-xl px-4 py-3 mx-auto"></div>
       </nav>
      {isModalOpen && (

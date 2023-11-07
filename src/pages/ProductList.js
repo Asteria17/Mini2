@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Card } from '../components';
 
-export const ProductList = () => {
+export const 
+ProductList = () => {
   const [data, setData] = useState([]);
   const [filter, setFilter] = useState(data);
 

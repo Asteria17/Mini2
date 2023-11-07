@@ -7,23 +7,36 @@ export const NavBar = ({ products }) => {
   const [data, setData] = useState([]);
   const [filter, setFilter, show] = useState(data);
   const [id, title, category, price] = data;
+
   useEffect(() => {
-    getBrand();
+    const storedData = localStorage.getItem('productData');
+    if (storedData) {
+      setData(JSON.parse(storedData));
+      setFilter(JSON.parse(storedData));
+    } else {
+      getBrand();
+    }
   }, []);
+
+  //Ito kasama sa localStorage
   const getBrand = async () => {
     const response = await fetch(
       'http://makeup-api.herokuapp.com/api/v1/products.json?brand=nyx'
     );
-    setData(await response.json());
-    setFilter(data);
+    const newData = await response.json();
+    setData(newData);
+    setFilter(newData);
+    localStorage.setItem('productData', JSON.stringify(newData));
   };
-
-  
 
   const filterProducts = (category) => {
     const updatedItems = data.filter((item) => item.product_type === category);
-    console.log(updatedItems);
     setFilter(updatedItems);
+  };
+
+  //ito para kahit nag click ka ng ibang page prevent parin niya yung current images (display)
+  const handleLinkClick = (event) => {
+    event.preventDefault();
   };
   return (
     <main className=" text-center ">

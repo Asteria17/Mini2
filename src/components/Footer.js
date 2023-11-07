@@ -93,34 +93,34 @@ export const Footer = () => {
                     />
                     <linearGradient id="b">
                       <stop
-                        stop-color="#3771c8"
+                        stopColor="#3771c8"
                         offset="0"
                       />
                       <stop
                         offset=".128"
-                        stop-color="#3771c8"
+                        stopColor="#3771c8"
                       />
                       <stop
-                        stop-opacity="0"
-                        stop-color="#60f"
+                        stopOpacity="0"
+                        stopColor="#60f"
                         offset="1"
                       />
                     </linearGradient>
                     <linearGradient id="a">
                       <stop
-                        stop-color="#fd5"
+                        stopColor="#fd5"
                         offset="0"
                       />
                       <stop
-                        stop-color="#fd5"
+                        stopColor="#fd5"
                         offset=".1"
                       />
                       <stop
-                        stop-color="#ff543e"
+                        stopColor="#ff543e"
                         offset=".5"
                       />
                       <stop
-                        stop-color="#c837ab"
+                        stopColor="#c837ab"
                         offset="1"
                       />
                     </linearGradient>

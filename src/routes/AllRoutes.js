@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
+
 import {
   Products,
   Home,
@@ -8,8 +9,11 @@ import {
   Contact,
   About,
   Login,
-  Modal
+  Modal,
+  ProductList,
 } from '../pages';
+
+import { Searchy } from '../components/Searchy'
 
 export const AllRoutes = () => {
   return (
@@ -42,10 +46,10 @@ export const AllRoutes = () => {
           element={<Login />}
         />
 
-        <Route
+        {/* <Route
           path="search"
           element={<Search />}
-        />
+        /> */}
         <Route
           path="contact"
           element={<Contact />}
@@ -54,10 +58,11 @@ export const AllRoutes = () => {
           path="*"
           element={<PageNotFound />}
         />
-        {/* <Route
-          path="/data/:id"
-          element={<Modal/>}
-        /> */}
+        
+        <Route
+          path="/search/:id"
+          element={<Searchy />}
+        />
       </Routes>
     </div>
   );
